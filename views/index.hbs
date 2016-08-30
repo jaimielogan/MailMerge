@@ -1,0 +1,46 @@
+<div class="container-fluid">
+  <div class="row">
+    <form action="/" method="post">
+      <div class="col-md-6">
+        <p>
+          Enter names/emails (one per line)
+        </p>
+        <div>
+          <textarea name="emails" autofocus class ="recipients" placeholder="Joe,Jones,joe@example.com"></textarea>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div>
+          <textarea name="subject" class="subject" placeholder="Subject" value=""></textarea>
+        </div>
+        <div class="">
+          <textarea name="body" class="body" placeholder="Body"></textarea>
+        </div>
+        <div>
+          <input type="submit" name="name" value="Preview">
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+<h3>Emails({{emailData.length}})</h3>
+
+{{#each emailData}}
+<div class = "emailPreviewContainer {{@index}}">
+  <div class="emailPreview">
+    <div class="To">
+      To: {{email}}
+      <a href="/remove/{{@index}}" class="deleteButton">X</a>
+    </div>
+    <div class="subjectLine">
+      Subject: {{subject}}
+    </div>
+    <div class="emailbody">
+      {{body}}
+    </div>
+  </div>
+</div>
+{{/each}}
